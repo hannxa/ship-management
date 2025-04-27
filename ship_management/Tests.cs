@@ -46,13 +46,27 @@ namespace ship_management
             Assert.Throws <ArgumentException>(() => new Passenger_ship(1231232, "ss", -9, 22));
         }
 
-        public void Adding_Ship_Type_Correctly()
+        [Fact]
+        public void Adding_Passenger()
         {
-            var tanker = new Tanker_ship(2345678, "Fuel Carrier", 200, 40);
+            var passengerShip = new Passenger_ship(9074729, "Fuel Carrier", 200, 40);
 
-            registry.AddShip(tanker);
+            registry.AddShip(passengerShip);
+            passengerShip.AddPassenger("passenger1");
 
-            Assert.Contains(tanker, registry.Ships);
+            Assert.Contains("passenger1", passengerShip.Passengers);
+        }
+
+        [Fact]
+        public void Removing_Passenger()
+        {
+            var passengerShip = new Passenger_ship(9074729, "Fuel Carrier", 200, 40);
+
+            registry.AddShip(passengerShip);
+            passengerShip.AddPassenger("passenger1");
+            passengerShip.RemovePassenger("passenger1");
+
+            Assert.DoesNotContain("passenger1", passengerShip.Passengers);
         }
     }
 }
