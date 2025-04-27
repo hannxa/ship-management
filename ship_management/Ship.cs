@@ -1,19 +1,30 @@
-﻿namespace ship_management
+﻿using Microsoft.AspNetCore.Mvc;
+using Microsoft.VisualBasic.FileIO;
+
+namespace ship_management
 {
     public class Ship
     {
-        private int Ship_number { get; set; }
+        public int IMO_number { get; set; }
         private string Ship_name { get; set; }
         private double Length {get; set; }
         private double Width { get; set; }
-
+        private string ShipType { get; set; }
+        private enum ShipTypes
+        {
+            PassengerShip,
+            TankerShip
+        }
 
         public Ship(int number, string name, double length, int width)
         {
-            Ship_number = number;
+            if (length <= 0) throw new ArgumentException("Length cannot be negative");
+            //if (!Enum.IsDefined(typeof(ShipTypes), shipType)) throw new ArgumentException("Invalid ship type");
+            IMO_number = number;
             Ship_name = name;
             Length = length;
             Width = width;
         }
+ 
     }
 }
