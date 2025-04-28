@@ -1,6 +1,6 @@
 ﻿using Microsoft.VisualBasic.FileIO;
 
-namespace ship_management
+namespace ship_management.Models
 {
     public enum Fuels
     {

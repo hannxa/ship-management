@@ -1,7 +1,7 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using Microsoft.VisualBasic.FileIO;
 
-namespace ship_management
+namespace ship_management.Models
 {
     public class Ship
     {
@@ -9,8 +9,7 @@ namespace ship_management
         private string Ship_name { get; set; }
         private double Length {get; set; }
         private double Width { get; set; }
-        private string ShipType { get; set; }
-        private enum ShipTypes
+        public enum ShipTypes
         {
             PassengerShip,
             TankerShip
@@ -19,7 +18,6 @@ namespace ship_management
         public Ship(int number, string name, double length, int width)
         {
             if (length <= 0) throw new ArgumentException("Length cannot be negative");
-            //if (!Enum.IsDefined(typeof(ShipTypes), shipType)) throw new ArgumentException("Invalid ship type");
             IMO_number = number;
             Ship_name = name;
             Length = length;

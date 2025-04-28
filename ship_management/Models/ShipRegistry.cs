@@ -1,5 +1,4 @@
-﻿
-namespace ship_management
+﻿namespace ship_management.Models
 {
     public class ShipRegistry
     {

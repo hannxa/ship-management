@@ -1,7 +1,7 @@
 ﻿using Microsoft.AspNetCore.Authorization.Infrastructure;
 using Microsoft.Win32;
 using Xunit;
-namespace ship_management
+namespace ship_management.Models
 {
     public class Tests
     {

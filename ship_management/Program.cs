@@ -1,4 +1,4 @@
-using ship_management;
+using ship_management.Models;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -6,19 +6,6 @@ var builder = WebApplication.CreateBuilder(args);
 builder.Services.AddRazorPages();
 
 var app = builder.Build();
-
-app.MapGet("/api/ships/passenger", (Passenger_ship ship, ShipRegistry registry) =>
-{
-    registry.AddShip(ship);
-    return Results.Ok();
-});
-
-app.MapGet("app/ships/tanker", (Tanker_ship ship, ShipRegistry registry) =>
-{
-    registry.AddShip(ship);
-    return Results.Ok();
-});
-
 
 // Configure the HTTP request pipeline.
 if (!app.Environment.IsDevelopment())

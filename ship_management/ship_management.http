@@ -1,0 +1,15 @@
+﻿@ship_management_HostAddress = https://localhost:5109
+
+POST {{ship_management_HostAddress}}/api/ship
+Content-Type: application/json
+
+{
+  
+  "IMO_number": 9074729,
+  "Ship_name": "Black Pearl",
+  "Length": 100.5,
+  "Width": 30.4,
+
+}
+
+###
