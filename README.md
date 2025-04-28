@@ -93,7 +93,7 @@ The Tests class contains unit tests to verify the core functionality of the Ship
 - Refueling_Tank: Ensures proper refueling of tanks on tanker ships.
 
 - Emptying_Tank: Tests the functionality of emptying fuel tanks on tanker ships.
-- 
+  
 ## Controllers
 - ShipController
 The main logic for handling requests related to ships is encapsulated in the ShipController class. It provides endpoints for adding ships, updating passengers, managing fuel tanks, and refueling or emptying tanks.
