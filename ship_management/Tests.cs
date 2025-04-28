@@ -68,5 +68,34 @@ namespace ship_management
 
             Assert.DoesNotContain("passenger1", passengerShip.Passengers);
         }
+
+        [Fact]
+        public void Refusing_Tank()
+        {
+            var tankerShip = new Tanker_ship(9074729, "aaa", 11, 22);
+
+            tankerShip.AddFuelTank(22, Fuels.Diesel);
+            tankerShip.RefuelTank(0, 11);
+
+            var tank = tankerShip.Tanks[0];
+            Assert.Equal(11, tank.CurrentLevel);
+            Assert.Equal(22, tank.Capacity);
+            Assert.Equal(Fuels.Diesel, tank.FuelType);
+        }
+
+        [Fact]
+        public void Emptying_Tank()
+        {
+            var tankerShip = new Tanker_ship(9074729, "aaa", 11, 22);
+
+            tankerShip.AddFuelTank(22, Fuels.Diesel);
+            tankerShip.RefuelTank(0, 11);
+            
+            var tank = tankerShip.Tanks[0];
+            tank.Empty();
+
+            Assert.Equal(0, tank.CurrentLevel);
+            
+        }
     }
 }

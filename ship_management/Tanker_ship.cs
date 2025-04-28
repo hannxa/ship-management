@@ -4,18 +4,27 @@
     {
         public List<FuelTank> Tanks = new List<FuelTank>();
 
-       
-        public Tanker_ship(int number, string name, double length, int width, int numberOfTanks) : base(number, name, length, width)
+        public Tanker_ship(int number, string name, double length, int width) : base(number, name, length, width)
         {
-            for (int i = 0; i< numberOfTanks; i++)
-            {
-                Tanks.Add(new FuelTank());
-            }
+            
         }
 
-        public void AddFuelTank(FuelTank tank)
+        public void AddFuelTank(double capacity, Fuels fuelType)
         {
+            var tank = new FuelTank(capacity, fuelType);
             Tanks.Add(tank);
+        }
+
+        public void RefuelTank(int tankIndex, double amount)
+        {
+            if (tankIndex < 0 || tankIndex >= Tanks.Count) throw new ArgumentOutOfRangeException("Tank index is invalid");
+            Tanks[tankIndex].Refuel(amount);
+        }
+
+        public void EmptyTank(int tankIndex)
+        {
+            if (tankIndex < 0 || tankIndex >= Tanks.Count) throw new ArgumentOutOfRangeException("Tank index is invalid");
+            Tanks[tankIndex].Empty();
         }
     }
 }
